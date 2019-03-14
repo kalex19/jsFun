@@ -21,14 +21,24 @@ const { dinosaurs, humans, movies } = require('./datasets/dinosaurs');
 // DATASET: kitties from ./datasets/kitties
 const kittyPrompts = {
   orangeKittyNames() {
+
+
     // Return an array of just the names of kitties who are orange e.g.
     // ['Tiger', 'Snickers']
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+     const result = kitties.filter(function(kitten){
+       return kitten.color == 'orange';
+     }).map(function(kitten) {
+       return kitten.name;
+     });
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // First we want all objects that have the color value of 'orange'
+    //so filter is used to go through the arrays
+    //From the objects that have a color value of orange, we want to return their
+    //name values as strings in an array so the map prototype is used
+    //The array with just their names is returned
   },
 
   sortByAge() {
@@ -550,16 +560,16 @@ const astronomyPrompts = {
 
   constellationsStarsExistIn() {
     // Return an array of the names of the constellations that the brightest stars are part of e.g.
-    
+
     //  [ "Canis Major",
     //    "Carina",
     //    "Boötes",
     //    "Auriga",
     //    "Orion",
-    //    "Lyra", 
-    //    "Canis Minor", 
-    //    "The Plow", 
-    //    "Orion", 
+    //    "Lyra",
+    //    "Canis Minor",
+    //    "The Plow",
+    //    "Orion",
     //    "The Little Dipper" ]
 
 
@@ -692,7 +702,7 @@ const dinosaurPrompts = {
         name: 'Justin Duncan',
         nationality: 'Alien',
         imdbStarMeterRating: 0
-      }, 
+      },
       {
         name: 'Karin Ohman',
         nationality: 'Chinese',
