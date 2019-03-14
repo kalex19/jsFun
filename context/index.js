@@ -9,18 +9,23 @@ const context = {
         this.title = title;
         this.classification = classification;
         this.fly = fly;
-      } 
+      }
     }
 
     const ship = new SpaceProbe('voyager', 'classy');
 
 
     // What is the value of `this` when we call ship.fly()?
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = 'global window object';
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    //A new ionstance of ship is created with two arguments being declared
+    //passed into the object as parameters
+    //When the new instance is created the fly function is invoked and 'this' is logged
+    //'this' will refer to the global window object as the functions
+    //is being written with an ES6 arrow function which does not have its' own
+    //'this' but is directed/bound to the window.
   },
 
   exerciseB() {
@@ -28,13 +33,15 @@ const context = {
       const value = 2;
       return this.value;
     }
-    
+
     // What is the value of `this` when we call fn()?
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = 'global window object';
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    //fn is simply a function. No new object is being instantiate.
+    //'this' has a default of 'global window object' which is used
+    //since there is no object property for this.value to refer to
   },
 
   exerciseC() {
@@ -49,11 +56,11 @@ const context = {
     el.addEventListener('click', car.getInfo);
 
     // What is the value of `this` when a user clicks on our element and car.getInfo() is triggered?
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = 'el';
     return result;
 
-    // Annotation: 
-    // Write your annotation here as a comment
+    // Annotation:
+    // 'this' refers to the element(el) that has the attached addEventListener
   },
 
   exerciseD() {
@@ -64,7 +71,7 @@ const context = {
         const innerFunction = function() {
           console.log(this.breed);
         };
-    
+
         return innerFunction;
       }
     };
@@ -72,11 +79,15 @@ const context = {
     var breed = dog.getBreed();
 
     // What is the value of `this` when we call breed()?
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = 'global window object';
     return result;
 
-    // Annotation: 
-    // Write your annotation here as a comment
+    // Annotation:
+    //'this' is being logged inside a function that is invoked as the value for
+    //the property getBreed, which is called on as the assigned value of the
+    //variable breed
+    //'this' refers to the global window object because .call, .apply, .bind,
+    //nor a dot is used when the function is invoked
   },
 
   exerciseE() {
@@ -88,11 +99,13 @@ const context = {
 
 
     // What is the value of `this` when we call fn()?
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = 'global window object';
     return result;
 
-    // Annotation: 
-    // Write your annotation here as a comment
+    // Annotation:
+    //'this' refers to the global window object becuase there is no instance of
+    //a new object and value is not a key is would be a reassignment of a
+    //variable, the way it is written
   },
 
   exerciseF() {
@@ -114,7 +127,7 @@ const context = {
     const result = 'REPLACE WITH YOUR RESULT HERE';
     return result;
 
-    // Annotation: 
+    // Annotation:
     // Write your annotation here as a comment
   },
 
@@ -142,7 +155,7 @@ const context = {
     const result = 'REPLACE WITH YOUR RESULT HERE';
     return result;
 
-    // Annotation: 
+    // Annotation:
     // Write your annotation here as a comment
   },
 
@@ -150,8 +163,8 @@ const context = {
     const obj = {
       arrowFunction: null,
       method: function() {
-        this.arrowFunction = () => { 
-          return this;
+        this.arrowFunction = () => {
+          return this;b
         };
       }
     };
@@ -162,11 +175,11 @@ const context = {
     const result = 'REPLACE WITH YOUR RESULT HERE';
     return result;
 
-    // Annotation: 
+    // Annotation:
     // Write your annotation here as a comment
   },
 
-  exerciseI() {  
+  exerciseI() {
     const poets = [{
       name: 'Sappho'
     }, {
@@ -185,7 +198,7 @@ const context = {
     const result = 'REPLACE WITH YOUR RESULT HERE';
     return result;
 
-    // Annotation: 
+    // Annotation:
     // Write your annotation here as a comment. Annotation should include explanation regarding the second argument of `poets` that is being passed
   },
 
@@ -199,7 +212,7 @@ const context = {
     const result = 'REPLACE WITH YOUR RESULT HERE';
     return result;
 
-    // Annotation: 
+    // Annotation:
     // Write your annotation here as a comment.
   }
 
