@@ -124,11 +124,12 @@ const context = {
     const storm = new Hero('Ororo', 'weather control', true);
 
     // What is the value of `this` when we call storm.identifyHero()?
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = 'instance of Hero';
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // 'this' refers to the new instance of the Hero object and will return the
+    //object keys and value
   },
 
   exerciseG() {
@@ -152,11 +153,13 @@ const context = {
 
 
     // What is the value of `this` when we call monopoly.restart()?
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = 'global window object';
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // 'this' is used in the function setTimeout which is called inside the function
+    //restart thus, 'this' refers to the global window object as it is not tied
+    //to the object context
   },
 
   exerciseH() {
@@ -164,7 +167,7 @@ const context = {
       arrowFunction: null,
       method: function() {
         this.arrowFunction = () => {
-          return this;b
+          return this;
         };
       }
     };
@@ -172,11 +175,11 @@ const context = {
     obj.method();
 
     // What is the value of `this` when we call obj.arrowFunction()?
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = 'obj';
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // 'this' refers to obj becuase 'this' is called inside the object as part of a method
   },
 
   exerciseI() {
@@ -195,11 +198,15 @@ const context = {
     }, poets);
 
     // What is the value of `this` that gets returned on each iteration of poets.map()?
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = 'poets';
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment. Annotation should include explanation regarding the second argument of `poets` that is being passed
+    // 'this' is being called inside a function that should return 'this'
+    // The function is the callback function for the poets.map prototype
+    // poets is passed through as current value(what will be processed through the array)
+    // and as the arguement, the value to use as 'this'
+    // Thus 'this' is retuned as 'poets'
   },
 
   exerciseJ() {
@@ -209,11 +216,11 @@ const context = {
     });
 
     // What is the value of `this` when a user clicks on our #btn element and the callback is triggered?
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = 'el';
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment.
+    // 'this' refers to the element with the eventlistener (el)
   }
 
 };
