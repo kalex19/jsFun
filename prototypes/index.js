@@ -44,11 +44,17 @@ const kittyPrompts = {
   sortByAge() {
     // Sort the kitties by their age
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.sort((k1,k2) => (k1.age > k2.age ? -1 : 1));
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    //To begin, the objects are out of age order and we want them to be ordered
+    //with the oldest kitten(object with the largest age value) to be at index 0
+    //and the rest to be in decending ordered
+    //sort is used to sort the arrays
+    //Since we want it in decending order the if statment returns -1 and the else {
+    // returns 1.
+    }
   },
 
   growUp() {
