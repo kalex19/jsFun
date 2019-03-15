@@ -39,7 +39,7 @@ describe("PROTOTYPES", () => {
         age: 1,
         color: "tuxedo"
       }])
-    }), it.only("growUp", () => {
+    }), it("growUp", () => {
       const e = kittyPrompts.growUp();
       expect(e).to.deep.equal([{
         name: "Snickers",
