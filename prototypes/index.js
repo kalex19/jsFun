@@ -54,7 +54,6 @@ const kittyPrompts = {
     //sort is used to sort the arrays
     //Since we want it in decending order the if statment returns -1 and the else {
     // returns 1.
-    }
   },
 
   growUp() {
@@ -71,8 +70,13 @@ const kittyPrompts = {
     // },
     // ...etc]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    let grownUp = [];
+    kitties.forEach(function(kitten){
+    kitties.age = kitten.age += 2;
+    grownUp.push(kitten);
+    grownUp.sort((k1,k2) => (k1.age > k2.age ? -1 : 1));
+    });
+    return grownUp;
   }
 };
 
